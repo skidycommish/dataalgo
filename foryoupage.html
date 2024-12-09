@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduHub - Home</title>
+    <link rel="stylesheet" href="./resources/css/foryoupage.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">EduHub</div>
+        <nav class="nav">
+            <a href="user_profile.html">
+                <img src="profile_picture.jpg" alt="Your Profile" class="small-profile-pic">
+            </a>
+            <a href="settings.html" class="btn">Post</a>
+            <a href="settings.html" class="btn">Settings</a>
+            <a href="chat.html" class="btn">Chat</a>
+            <a href="logout.html" class="btn logout">Logout</a>
+            
+        </nav>
+    </header>
+
+    <main class="content">
+        <section class="search-section">
+            <div class="search-container">
+                <button id="createSearchBtn" class="btn">Add Search Bar</button>
+                <button id="closeBtn" class="btn">Close</button>
+            </div>
+            <div id="dynamicSearchContainer"></div>
+        </section>
+    </main>
+    
+        <section class="post-feed">
+            <div class="post-card">
+                <div class="post-header">
+                    <a href="user_profile.html" class="profile-link">
+                        <img src="user1_picture.jpg" alt="User 1 Profile" class="post-profile-pic">
+                        <span class="post-username">User123</span>
+                    </a>
+                    <span class="post-time">2 hours ago</span>
+                </div>
+                <div class="post-content">
+                    <h3 class="post-title">Introduction to Python</h3>
+                    <p class="post-snippet">
+                        Learn the basics of Python programming with this comprehensive guide. Includes exercises and examples.
+                    </p>
+                    <a href="post_details.html" class="btn">Read More</a>
+                    <div class="post-actions">
+                        <button class="btn upvote">Upvote</button>
+                        <button class="btn downvote">Downvote</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post-card">
+                <div class="post-header">
+                    <a href="user_profile.html" class="profile-link">
+                        <img src="user2_picture.jpg" alt="User 2 Profile" class="post-profile-pic">
+                        <span class="post-username">JaneDoe</span>
+                    </a>
+                    <span class="post-time">5 hours ago</span>
+                </div>
+                <div class="post-content">
+                    <h3 class="post-title">Understanding Machine Learning</h3>
+                    <p class="post-snippet">
+                        This article explores the foundations of machine learning and its real-world applications.
+                    </p>
+                    <a href="post_details.html" class="btn">Read More</a>
+                    <div class="post-actions">
+                        <button class="btn upvote">Upvote</button>
+                        <button class="btn downvote">Downvote</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>EduHub &copy; 2024. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const createSearchBtn = document.getElementById('createSearchBtn');
+        const closeBtn = document.getElementById('closeBtn');
+        const dynamicSearchContainer = document.getElementById('dynamicSearchContainer');
+
+        const previousSearches = ["Python", "Machine Learning", "Data Science", "Cloud Computing", "AI Basics"];
+
+        closeBtn.addEventListener('click', () => {
+            dynamicSearchContainer.innerHTML = '';
+        })
+
+        createSearchBtn.addEventListener('click', () => {
+            if (document.querySelector('.search-bar')) return;
+
+            const searchBar = document.createElement('input');
+            searchBar.type = 'text';
+            searchBar.className = 'search-bar';
+            searchBar.placeholder = 'Search topics, tags, or users...';
+            dynamicSearchContainer.appendChild(searchBar);
+
+            const dropdown = document.createElement('select');
+            dropdown.className = 'dropdown';
+
+            const defaultOption = document.createElement('option');
+            defaultOption.value = '';
+            defaultOption.textContent = 'Previous Searches';
+            dropdown.appendChild(defaultOption);
+
+            previousSearches.forEach(search => {
+                const option = document.createElement('option');
+                option.value = search;
+                option.textContent = search;
+                dropdown.appendChild(option);
+            });
+
+            dynamicSearchContainer.appendChild(dropdown);
+        });
+
+
+    </script>
+</body>
+</html>

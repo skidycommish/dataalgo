@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+    <link rel="stylesheet" href="./resources/css/post.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">EduHub</div>
+        <nav class="nav">
+            <a href="#" class="btn">Home</a>
+            <a href="#" class="btn">Profile</a>
+        </nav>
+    </header>
+
+    <main class="content">
+        <div class="form-container">
+            <h2>Create a New Post</h2>
+            <form id="postForm">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" placeholder="Enter post title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tags">Tags</label>
+                    <input type="text" id="tags" name="tags" placeholder="Enter tags separated by commas" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="attachments">Attachments</label>
+                    <input type="file" id="attachments" name="attachments" multiple>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" placeholder="Write your post description here..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="isPaid">Access</label>
+                    <input type="checkbox" id="isPaid" name="isPaid">
+                    <label for="isPaid">Paid Content</label>
+                    <div id="priceInput" class="price-input">
+                        <label for="price">Set Price ($)</label>
+                        <input type="number" id="price" name="price" placeholder="Enter price" step="0.01" min="0">
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit">Publish Post</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>EduHub &copy; 2024. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const isPaidCheckbox = document.getElementById('isPaid');
+        const priceInput = document.getElementById('priceInput');
+
+        isPaidCheckbox.addEventListener('change', () => {
+            if (isPaidCheckbox.checked) {
+                priceInput.style.display = 'block';
+            } else {
+                priceInput.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

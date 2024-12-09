@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduHub - Login</title>
+    <link rel="stylesheet" href="./resources/css/signup.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">EduHub</div>
+        <nav class="nav">
+            <a href="login.html" class="btn login active">Login</a>
+            <a href="signup.html" class="btn signup">Sign Up</a>
+        </nav>
+    </header>
+
+    <main class="content">
+        <section class="form-container">
+            <h2>Login</h2>
+            <form action="/login" method="POST" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username or Email</label>
+                    <input type="text" id="username" name="username" required placeholder="Enter your username or email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn submit-btn">Login</button>
+            </form>
+            <p class="form-footer">Don't have an account? <a href="signup.html">Sign up here</a>.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>EduHub &copy; 2024. All rights reserved.</p>
+    </footer>
+</body>
+</html>
